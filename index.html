@@ -9,8 +9,8 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#2b0614;--bg2:#3d0a1e;--ink:#ffe3ec;--muted:#f1b4c8;--accent:#f4a7bd;--pink:#800020;--card:#4a0d24;--line:rgba(244,167,189,.25)}}
 :root[data-theme="dark"]{color-scheme:dark;--bg:#2b0614;--bg2:#3d0a1e;--ink:#ffe3ec;--muted:#f1b4c8;--accent:#f4a7bd;--pink:#800020;--card:#4a0d24;--line:rgba(244,167,189,.25)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.7}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.7;overflow-wrap:break-word}
 h1,h2,h3{font-weight:400;line-height:1.15;margin:0 0 .5em}
 a{color:inherit}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:var(--bg);border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:14px}
@@ -18,24 +18,23 @@ nav b{font-family:Georgia,serif;font-size:20px;font-weight:400;font-style:italic
 nav div{display:flex;gap:18px;flex-wrap:wrap}
 nav a{text-decoration:none;opacity:.85}
 nav a:hover{opacity:1;color:var(--accent)}
-.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:12vh 6vw;background:radial-gradient(circle at 20% 20%,var(--pink),transparent 55%),linear-gradient(160deg,var(--bg2),var(--bg) 60%,var(--bg2))}
+.hero{min-height:88vh;min-height:88svh;display:grid;place-items:center;text-align:center;padding:12vh 6vw;background:radial-gradient(circle at 20% 20%,var(--pink),transparent 55%),linear-gradient(160deg,var(--bg2),var(--bg) 60%,var(--bg2))}
 .eyebrow{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
 .hero h1{font-size:clamp(48px,11vw,120px);font-style:italic;color:var(--accent)}
 .hero p{max-width:520px;margin:0 auto 1.6em;font-size:20px;color:var(--muted)}
-/* FOTO BERANDA: ganti GANTI-FOTO.jpg dengan nama file atau tautan foto Anda,
-lalu hapus baris pembuka "/* FOTO..." dan baris penutup "*" + "/" di sekitar dua aturan di bawah*/
+/* FOTO BERANDA: ganti image.jpg dengan nama file foto Anda */
 .hero{background:linear-gradient(rgba(43,6,20,.55),rgba(43,6,20,.55)),url("image.jpg") center/cover no-repeat}
 .hero h1,.hero .eyebrow,.hero p{color:#fff}
 
-.btn{display:inline-block;padding:13px 30px;border-radius:999px;background:var(--accent);color:var(--bg);font-family:system-ui,sans-serif;font-size:14px;text-decoration:none;border:0;cursor:pointer}
-.btn.o{background:transparent;color:var(--accent);border:1px solid var(--accent);margin-left:8px}
 section{padding:90px 6vw;max-width:1100px;margin:0 auto}
 h2{font-size:clamp(32px,5vw,52px)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:22px}
+.grid+.grid{margin-top:22px}
 .photo{aspect-ratio:4/3;border-radius:14px;display:flex;align-items:flex-end;padding:18px;color:#fff;font-style:italic;background:linear-gradient(160deg,#f4a7bd,#800020)}
 .photo.b{background:linear-gradient(200deg,#ffc9d9,#a3123a)}
 .photo.c{background:linear-gradient(120deg,#e87a9a,#4a0d24)}
 .story small,.num{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.story small{display:block;margin-top:14px}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .tags span{font:12px system-ui,sans-serif;padding:4px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 .alt{background:var(--bg2);max-width:none}
@@ -43,22 +42,10 @@ h2{font-size:clamp(32px,5vw,52px)}
 .quote{font-size:clamp(24px,3.6vw,38px);font-style:italic;max-width:780px;color:var(--accent)}
 .about{display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:40px;align-items:center}
 .about .photo{aspect-ratio:4/5}
-@media(max-width:700px){.about{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
 .card ul{padding-left:18px;margin:0;color:var(--muted);font-family:system-ui,sans-serif;font-size:14px}
-.line{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
-.line .num{padding-top:6px}
-.line p{margin:0;color:var(--muted)}
 blockquote{margin:0;font-style:italic}
 blockquote cite{display:block;margin-top:10px;font:12px system-ui,sans-serif;letter-spacing:.1em;color:var(--accent);font-style:normal}
-form{display:grid;gap:14px;max-width:560px}
-input,textarea{width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui,sans-serif}
-label{font:13px system-ui,sans-serif;color:var(--muted)}
-#thanks{display:none}
-.avatar{width:160px;aspect-ratio:1;border-radius:50%;margin:0 auto 26px;display:grid;place-items:center;border:3px solid var(--accent);cursor:pointer;color:#fff;font:13px/1.4 system-ui,sans-serif;text-align:center;background:linear-gradient(160deg,#f4a7bd,#800020)}
-.hero.has-photo h1,.hero.has-photo .eyebrow,.hero.has-photo p{color:#fff}
-.hero.has-photo .btn{background:#fff;color:#800020}
-.hero.has-photo .btn.o{background:transparent;color:#fff;border-color:#fff}
 .social{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:28px}
 .social a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);color:var(--accent)}
 .social a:hover{background:var(--accent);color:var(--bg)}
@@ -66,6 +53,35 @@ label{font:13px system-ui,sans-serif;color:var(--muted)}
 #kontak{text-align:center}
 .long{max-width:760px;color:var(--muted);font-size:19px}.long p{margin:0 0 1.2em}
 footer{padding:40px 6vw;text-align:center;background:var(--accent);color:var(--bg);font:14px system-ui,sans-serif}
+
+/* ===== TOMBOL MUSIK ===== */
+.musik-box{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;align-items:center;gap:10px}
+.musik,.musik-next{border-radius:50%;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(74,13,36,.35)}
+.musik{width:52px;height:52px;border:0;background:var(--accent);color:var(--bg)}
+.musik-next{width:42px;height:42px;background:var(--card);color:var(--accent);border:1px solid var(--line)}
+.musik-next svg{width:18px;height:18px;fill:currentColor}
+.musik svg{width:22px;height:22px;fill:currentColor}
+.musik.on{animation:berdenyut 2s ease-in-out infinite}
+@keyframes berdenyut{50%{transform:scale(1.08)}}
+
+/* ===== TAMPILAN HP (layar 700px ke bawah) ===== */
+@media(max-width:700px){
+  html{scroll-padding-top:96px}
+  nav{flex-direction:column;gap:6px;padding:10px 5vw;text-align:center}
+  nav b{font-size:18px}
+  nav div{justify-content:center;gap:4px 16px}
+  nav a{padding:4px 2px}
+  .hero{min-height:80vh;min-height:80svh;padding:10vh 7vw}
+  .hero h1{font-size:clamp(36px,12vw,56px)}
+  .hero p{font-size:17px}
+  section{padding:56px 6vw}
+  .grid{gap:36px}
+  .grid+.grid{margin-top:36px}
+  .about{grid-template-columns:1fr;gap:24px}
+  .about .photo{width:100%;max-width:320px;margin:0 auto}
+  .long{font-size:17px}
+  .social{max-width:260px;margin-left:auto;margin-right:auto}
+}
 </style>
 </head>
 <body id="top">
@@ -101,7 +117,7 @@ footer{padding:40px 6vw;text-align:center;background:var(--accent);color:var(--b
 <p class="quote">Saya percaya karya terbaik lahir dari rasa ingin tahu dan kerja yang dilakukan dengan sabar.</p>
 <p style="color:var(--muted)">Tulis perkenalan singkat: siapa Anda, apa yang sedang Anda pelajari atau kerjakan, dan apa yang Anda cari saat ini.</p>
 </div></div>
-</section>
+</div></section>
 
 <section id="perjalanan">
 <div class="eyebrow">For You</div>
@@ -141,8 +157,36 @@ footer{padding:40px 6vw;text-align:center;background:var(--accent);color:var(--b
 
 <footer>Happy Birthday Icaa from Panno</footer>
 
+<!-- MUSIK: daftar lagu ada di baris "var lagu" pada skrip di bawah.
+     Simpan file lagu di folder yang sama dengan file HTML ini. -->
+<audio id="musik" preload="none"></audio>
+<div class="musik-box">
+<button id="musikNext" class="musik-next" type="button" aria-label="Lagu berikutnya"><svg viewBox="0 0 24 24"><polygon points="5 4 15 12 5 20 5 4"/><rect x="17" y="5" width="2" height="14"/></svg></button>
+<button id="musikBtn" class="musik" type="button" aria-label="Putar musik">
+<svg id="ikonPlay" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+<svg id="ikonPause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+</button>
+</div>
 <script>
-document.querySelectorAll('.up input').forEach(function(inp){inp.addEventListener('change',function(){var f=inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(){document.querySelectorAll('.up').forEach(function(b){b.style.backgroundImage='url('+r.result+')';b.style.backgroundSize='cover';b.style.backgroundPosition='center';var s=b.querySelector('span');if(s)s.style.display='none';});};r.readAsDataURL(f);});});
+(function(){
+  var lagu=['Panasea.mp3','music.mp3'];   // ganti dengan nama file lagu Anda
+  var i=0,
+      a=document.getElementById('musik'),b=document.getElementById('musikBtn'),
+      n=document.getElementById('musikNext'),
+      p=document.getElementById('ikonPlay'),s=document.getElementById('ikonPause');
+  a.src=lagu[0];
+  function ui(on){
+    p.style.display=on?'none':'block';
+    s.style.display=on?'block':'none';
+    b.setAttribute('aria-label',on?'Jeda musik':'Putar musik');
+    b.classList.toggle('on',on);
+  }
+  function putar(){a.play().then(function(){ui(true)}).catch(function(){ui(false)});}
+  function berikut(){i=(i+1)%lagu.length;a.src=lagu[i];putar();}
+  b.addEventListener('click',function(){if(a.paused){putar();}else{a.pause();ui(false);}});
+  n.addEventListener('click',berikut);
+  a.addEventListener('ended',berikut);
+})();
 </script>
 </body>
 </html>
